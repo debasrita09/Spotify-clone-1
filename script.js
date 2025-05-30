@@ -17,7 +17,7 @@ let currentSong=new Audio();
 const playMusic=(folder,name, artist, pause=false)=>{
     //let audio=new Audio(`/spotify/songs/`+name+`-`+artist+`.mp3`);
     currfolder=folder;
-    currentSong.src=`https://github.com/debasrita09/Spotify-clone-1/tree/main/songs/${currfolder}/`+name+"-"+artist+".mp3";
+    currentSong.src=`songs/${currfolder}/`+name+"-"+artist+".mp3";
     
     if(!pause){
         currentSong.play();
@@ -30,7 +30,7 @@ const playMusic=(folder,name, artist, pause=false)=>{
 //fetch songs
 async function getSongs(folder){
     currfolder=folder.replaceAll(" ", "%20");
-    let a=await fetch(`https://github.com/debasrita09/Spotify-clone-1/tree/main/songs/${currfolder}/`);
+    let a=await fetch(`songs/${currfolder}/`);
     let response = await a.text();
     let div=document.createElement("div");
     div.innerHTML= response;
@@ -53,7 +53,7 @@ async function getSongs(folder){
 
 //fetch folders
 async function getfolders(){
-    let b=await fetch(`https://github.com/debasrita09/Spotify-clone-1/tree/main/songs/`);
+    let b=await fetch(`songs/`);
     let c=await b.text();
    
     let div=document.createElement("div");
@@ -83,7 +83,7 @@ async function main(){
     await getfolders();
     console.log(folders);
     Array.from(folders).forEach(async folder=>{
-        let f= await fetch(`https://github.com/debasrita09/Spotify-clone-1/tree/main/songs/${folder}/info.json`)
+        let f= await fetch(`songs/${folder}/info.json`)
         let response=await f.json();
         const card=document.createElement("li");
         card.classList.add("card");
@@ -105,7 +105,7 @@ async function main(){
 
 
                         </div>
-                        <img src="https://github.com/debasrita09/Spotify-clone-1/tree/main/songssongs/${folder}/${folder}.jpg">
+                        <img src="songs/${folder}/${folder}.jpg">
                         <h2>${response.title}</h2>
                         <p>${response.description}</p>`
         document.querySelector(".cardContainer").appendChild(card);
@@ -153,12 +153,12 @@ async function main(){
     play.addEventListener("click", ()=>{
         if(currentSong.paused){
             currentSong.play();
-            play.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/pause.svg"
+            play.src="pause.svg"
             
         }
         else{
             currentSong.pause();
-            play.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/play.svg"
+            play.src="play.svg"
             
         }
     })
@@ -232,12 +232,12 @@ async function main(){
     document.querySelector(".volume").firstElementChild.addEventListener("click", ()=>{
         if(currentSong.volume==0){
             currentSong.volume=0.5;
-            volimg.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/volume.svg";
+            volimg.src="volume.svg";
             document.querySelector(".range").value=50;
         }
         else {
             currentSong.volume=0;
-            volimg.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/mute.svg";
+            volimg.src="mute.svg";
             document.querySelector(".range").value=0;
         }
     })
