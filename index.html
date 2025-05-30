@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,21 @@
     <link rel="stylesheet" href="utility.css" class="css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-    <div class="container flex bg-black">  <!--main container-->
-        <div class="left bg-black">  <!--containes the left vertical half-->
-            
-            <div class="home rounded bg-grey m-1 p-1">   <!--contains the upper part of left side-->
-                <div class="logo">
-                    <img src="logo.svg" class="invert" alt="logo">
+    <div class="container flex bg-black"> <!--main container-->
+        <div class="left bg-black"> <!--containes the left vertical half-->
+
+            <div class="home rounded bg-grey m-1 p-1"> <!--contains the upper part of left side-->
+                <div class="logodiv">
+                    <img src="logo.svg" class="logo invert" alt="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
+                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </div>
-                <ul >
+                <ul>
                     <li><img class="invert" src="home.svg" alt="home">Home</li>
                     <li><img class="invert" src="search.svg" alt="search">Search</li>
                 </ul>
@@ -25,13 +32,13 @@
                 <div class="heading flex">
                     <img class="invert" src="playlist.svg" alt="library">
                     <h2>Your Library</h2>
-                    
-                </div> 
+
+                </div>
                 <div class="songList">
-                        <ul>
-                            
-                        </ul>
-                    </div>
+                    <ul>
+
+                    </ul>
+                </div>
                 <div class="footer">
                     <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
                     <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
@@ -45,17 +52,21 @@
         </div>
         <div class="right rounded bg-grey ">
             <div class="header">
+                
                 <div class="nav">
+                    
+                    <img src="hamburger.svg" class="hamburger" id="ham">
+                    
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
-                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9 18L14.2929 12.7071C14.6262 12.3738 14.7929 12.2071 14.7929 12C14.7929 11.7929 14.6262 11.6262 14.2929 11.2929L9 6"
-                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                        <path
+                            d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
+                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9 18L14.2929 12.7071C14.6262 12.3738 14.7929 12.2071 14.7929 12C14.7929 11.7929 14.6262 11.6262 14.2929 11.2929L9 6"
+                            stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </div>
                 <div class="buttons">
                     <button class="signupbtn">Sign up</button>
@@ -64,45 +75,35 @@
             </div>
             <div class="spotify-playlists">
                 <h1>Spotify Playlists</h1>
-                <div class="cardContainer">
-                    <div class="card ">
-                        <div class="play">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
-  <!-- Green circular background -->
-  <circle cx="16" cy="16" r="16" fill="grey" />
-
-  <!-- Solid black play icon centered with padding -->
-  <g transform="translate(4, 4)">
-    <path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" 
-      fill="#000000" />
-  </g>
-</svg>
-
-
-
-                        </div>
-                        <img src="moana.png">
-                        <h2>Happy Hits!</h2>
-                        <p>Hits to boost your mood and fill you with happiness!</p>
-                    </div>
-                </div>
+                <ul class="cardContainer">
+                    
+                </ul>
                 <div class="playbar">
                     <div class="seekbar">
                         <div class="circle" id="circle">
-                            
+
                         </div>
                     </div>
                     <div class="songinfo">
-                        
+
                     </div>
-                    
+
                     <div class="songbuttons">
                         <img class="invert" id="previous" src="prev.svg">
                         <img class="invert" id="play" src="play.svg">
                         <img class="invert" id="next" src="next.svg">
                     </div>
-                    <div class="songtime">
+                    <div class="tnv">
 
+                        <div class="songtime">
+
+                        </div>
+                        <div class="volume">
+                            <img src="volume.svg" id="volimg">
+                            <div class="rangediv">
+                                <input type="range" name="volume" class="range">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,4 +112,3 @@
     </div>
     <script src="script.js"></script>
 </body>
-</html>
