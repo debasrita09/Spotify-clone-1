@@ -16,7 +16,7 @@ function formatTime(seconds) {
 let currentSong=new Audio();
 const playMusic=(folder,name, artist, pause=false)=>{
     //let audio=new Audio(`/spotify/songs/`+name+`-`+artist+`.mp3`);
-    currfolder=folder;
+    currfolder=folder.replaceAll(" ","%20");
     currentSong.src=`songs/${currfolder}/`+name+"-"+artist+".mp3";
     
     if(!pause){
@@ -29,6 +29,7 @@ const playMusic=(folder,name, artist, pause=false)=>{
 
 //fetch songs
 async function getSongs(folder){
+    songs=[];
     currfolder=folder.replaceAll(" ", "%20");
     let a=await fetch(`songs/${currfolder}/songlist.json`);
     let r = await a.json();
@@ -95,7 +96,7 @@ async function main(){
     console.log(songs)
     let s=songs[0].split("-")[0].replaceAll("%20", " ");
     let r=songs[0].split("-")[1].replaceAll("%20", " ");
-    playMusic("Party Songs",s,r,true);
+    playMusic("Party%20Songs",s,r,true);
     
     //show all the songs in the playlist
     songUL=document.querySelector(".songList").getElementsByTagName("ul")[0];
@@ -111,6 +112,7 @@ async function main(){
                                     <span>Play now</span>
                                     <img class="invert" id="playhere" src="play.svg">
                                 </div>`
+        
         songUL.appendChild(li);
     })
     
@@ -228,12 +230,12 @@ async function main(){
             console.log(album);
 
             songs=await getSongs(`${album}`);
-
+            console.log(songs);
             let s=songs[0].split("-")[0].replaceAll("%20", " ");
             let r=songs[0].split("-")[1].replaceAll("%20", " ");
             playMusic(album,s,r);
             
-            songUL.innerHTML=" "
+            songUL.innerHTML=" ";
             songs.forEach((song)=>{
             const li=document.createElement('li');
             li.innerHTML=`<img class="invert" src="music.svg">
