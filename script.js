@@ -53,25 +53,11 @@ async function getSongs(folder){
 
 //fetch folders
 async function getfolders(){
-    let b=await fetch(`songs/`);
-    let c=await b.text();
+    let b=await fetch(`songnames.json`);
+    let c=await b.json();
    
-    let div=document.createElement("div");
-    div.innerHTML=c;
-
-    let aa=div.getElementsByTagName("a");
-    
-    for(let index=1; index<aa.length; index++){
-        const ele=aa[index].href.replaceAll(" ", "%20");
-        
-        let ele1=ele.split("songs/")[1];
-        let ele2=ele1.replaceAll(" ", "%20");
-        
-        let ele3=ele2.split("/")[0];
-        
-        folders.push(ele3);
-        
-        
+    for(const key in c){
+       folders.push(c.key);
     }
     
     
