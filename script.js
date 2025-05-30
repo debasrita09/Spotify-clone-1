@@ -1,6 +1,6 @@
 
 let songUL;
-let songs;
+let songs=[];
 let currfolder;
 let folders=[];
 function formatTime(seconds) {
@@ -30,24 +30,13 @@ const playMusic=(folder,name, artist, pause=false)=>{
 //fetch songs
 async function getSongs(folder){
     currfolder=folder.replaceAll(" ", "%20");
-    let a=await fetch(`songs/${currfolder}/`);
-    let response = await a.text();
-    let div=document.createElement("div");
-    div.innerHTML= response;
-    
-    let as=div.getElementsByTagName("a");
-     songs=[];
-    for(let index = 0; index<as.length; index++){
-        const element=as[index];
-        
-        if(element.href.endsWith(".mp3")){
-            
-            let r=element.href;
-            let s=r.split(`${currfolder}/`)[1];
-            songs.push(s.split(".mp3")[0]);
-            
-        }
+    let a=await fetch(`songs/${currfolder}/songlist.json`);
+    let r = await a.json();
+    for(const key in r){
+       console.log(r.key)
+       songs.push(r[key].replaceAll(" ","%20"));
     }
+    
     return songs;
 }
 
@@ -102,7 +91,8 @@ async function main(){
 
     //get the list of songs
     
-    songs=await getSongs("Party Songs");
+    songs=await getSongs("Party%20Songs");
+    console.log(songs)
     let s=songs[0].split("-")[0].replaceAll("%20", " ");
     let r=songs[0].split("-")[1].replaceAll("%20", " ");
     playMusic("Party Songs",s,r,true);
