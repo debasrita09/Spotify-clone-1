@@ -30,7 +30,7 @@ const playMusic=(folder,name, artist, pause=false)=>{
 //fetch songs
 async function getSongs(folder){
     currfolder=folder.replaceAll(" ", "%20");
-    let a=await fetch(`/spotify/songs/${currfolder}/`);
+    let a=await fetch(`/songs/${currfolder}/`);
     let response = await a.text();
     let div=document.createElement("div");
     div.innerHTML= response;
@@ -53,7 +53,7 @@ async function getSongs(folder){
 
 //fetch folders
 async function getfolders(){
-    let b=await fetch(`/spotify/songs/`);
+    let b=await fetch(`/songs/`);
     let c=await b.text();
    
     let div=document.createElement("div");
@@ -83,7 +83,7 @@ async function main(){
     await getfolders();
     console.log(folders);
     Array.from(folders).forEach(async folder=>{
-        let f= await fetch(`/spotify/songs/${folder}/info.json`)
+        let f= await fetch(`/songs/${folder}/info.json`)
         let response=await f.json();
         const card=document.createElement("li");
         card.classList.add("card");
