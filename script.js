@@ -56,9 +56,9 @@ async function getfolders(){
     let b=await fetch(`songnames.json`);
     let c=await b.json();
     
-   console.log();
+    console.log();
     for(const key in c){
-       console.log(c[key])
+       console.log(c.key)
        folders.push(c[key].replaceAll(" ","%20"));
     }
     
