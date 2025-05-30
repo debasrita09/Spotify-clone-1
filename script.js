@@ -105,7 +105,7 @@ async function main(){
 
 
                         </div>
-                        <img src="songs/${folder}/${folder}.jpg">
+                        <img src="https://github.com/debasrita09/Spotify-clone-1/tree/main/songssongs/${folder}/${folder}.jpg">
                         <h2>${response.title}</h2>
                         <p>${response.description}</p>`
         document.querySelector(".cardContainer").appendChild(card);
@@ -153,13 +153,13 @@ async function main(){
     play.addEventListener("click", ()=>{
         if(currentSong.paused){
             currentSong.play();
-            play.src="pause.svg"
-            playhere.src="pause.svg"
+            play.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/pause.svg"
+            
         }
         else{
             currentSong.pause();
-            play.src="play.svg"
-            playhere.src="play.svg"
+            play.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/play.svg"
+            
         }
     })
 
@@ -232,12 +232,12 @@ async function main(){
     document.querySelector(".volume").firstElementChild.addEventListener("click", ()=>{
         if(currentSong.volume==0){
             currentSong.volume=0.5;
-            volimg.src="volume.svg";
+            volimg.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/volume.svg";
             document.querySelector(".range").value=50;
         }
         else {
             currentSong.volume=0;
-            volimg.src="mute.svg";
+            volimg.src="https://github.com/debasrita09/Spotify-clone-1/blob/main/mute.svg";
             document.querySelector(".range").value=0;
         }
     })
