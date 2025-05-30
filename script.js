@@ -1,4 +1,4 @@
-console.log("Start")
+
 let songUL;
 let songs;
 let currfolder;
